@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solo Leveling - Fan Page</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="home-link"><i class="fas fa-home"></i> Inicio</a>
+            <a href="#videos">Videos</a>
+            <a href="#foro">Foro</a>
+            <form class="search-bar" action="https://www.google.com/search" method="GET" target="_blank">
+                <input type="text" name="q" placeholder="Buscar...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+        <section id="trailer">
+            <h1>Tráiler de Solo Leveling - Temporada 2</h1>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/dJq7FImRxks" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="formulario">
+            <h2>Regístrate para más información</h2>
+            <form class="user-form">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required>
+
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" name="edad" min="10" max="100" required>
+
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" required>
+
+                <label for="telefono">Teléfono de Contacto:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+
+        <!-- Sección de redes sociales -->
+        <section id="social">
+            <h2>Síguenos en nuestras Redes Sociales</h2>
+            <div class="social-icons">
+                <a href="https://twitter.com" class="social-icon twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" class="social-icon instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com" class="social-icon facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
