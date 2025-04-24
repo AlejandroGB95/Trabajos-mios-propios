@@ -1,0 +1,68 @@
+body {
+    font-family: sans-serif;
+    background: #f0f0f5;
+    padding: 2rem;
+}
+
+h1 {
+    text-align: center;
+    color: #4a16c4;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+th {
+    color:#4a16c4;
+
+}
+
+td {
+
+    color: #ccc;
+
+
+}
+
+.sin-cambios {
+    background-color: #b86b2d;
+}
+
+.cambio {
+    background-color: #eecb08;
+}
+
+.revisado {
+    background-color: #29c44d;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+button {
+    background-color: #0055aa;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #003d80;
+}
