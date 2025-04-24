@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comprobador de URLs</title>
+    <link rel="stylesheet" href="{% static 'monitor/style.css' %}">
+</head>
+<body>
+    <h1>Comprobador de URLs</h1>
+
+    <table>
+        <tr>
+            <th>URL</th>
+            <th>Última comprobación</th>
+            <th>¿Cambió?</th>
+            <th>¿Revisado?</th>
+        </tr>
+        {% for url in urls %}
+        <tr class="{% if url.has_changed and not url.is_checked %}cambio{% elif url.is_checked %}revisado{% else %}sin-cambios{% endif %}">
+            <td><a href="{{ url.url }}" target="_blank">{{ url.url }}</a></td>
+            <td>{{ url.last_checked|date:"Y-m-d H:i" }}</td>
+            <td>{{ url.has_changed }}</td>
+            <td>{{ url.is_checked }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div class="buttons">
+        <form action="{% url 'check' %}" method="post">{% csrf_token %}
+            <button type="submit">Comprobar cambios</button>
+        </form>
+        <form action="{% url 'done' %}" method="post">{% csrf_token %}
+            <button type="submit">Hecho</button>
+        </form>
+        <form action="{% url 'reset' %}" method="post">{% csrf_token %}
+            <button type="submit">Resetear</button>
+        </form>
+    </div>
+</body>
+</html>
+
