@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Filtros Genéricos</title>
+        <link rel="icon" type="image/png" href="{% static 'monitor/url.png' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'monitor/styles.css' %}">
+        <script>
+            const crearFiltroUrl = "{% url 'crear_filtro' %}";
+            const editarFiltroUrl = "{% url 'editar_filtro' %}";
+        </script>        
+        <script src="{% static 'monitor/script_filtros_genericos.js' %}" defer></script>
+        <script>
+            (function () {
+                if (localStorage.getItem("theme") === "dark") {
+                    document.documentElement.classList.add("dark-mode");
+                }
+            })();
+        </script>
+        <script src="{% static 'monitor/theme.js' %}"  defer></script>
+    </head>
+    <body>
+        <div class="theme">
+            <header class="windows">
+                <!--Barra Lateral 20/05/2025-->
+        <div class="sidebar-container">
+            <button id="toggle-lateral" width="24">☰</button>
+            <aside id="sidebar">
+                <nav id="barralateral">
+                    <ul>
+                        <li><a href="{% url 'index' %}?tab=todos"><button id="urlbutton" class="butlat">URLs</button></a></li>
+                        <li><a href="{% url 'index' %}?tab=boe""><button id="boletinbutton" class="butlat">Boletines</button></a></li>
+                    </ul>
+                </nav>
+            </aside>
+        </div>
+                <ul class="barra">
+                        <div class="nav-left">
+                            <li><a href="{% url 'index' %}?tab=todos"><button id="todos" class="activo" data-filtro="todos">
+                                Todos los enlaces ({{ total_counts.todos }})</button></a></li>
+                            <li><a href="{% url 'index' %}?tab=pendientes"><button id="pendientes" data-filtro="pendientes">
+                                Pendientes de revisión ({{ total_counts.pendientes }})</button></li>
+                            <li><a href="{% url 'index' %}?tab=vistos"><button id="vistos" data-filtro="vistos">
+                                Vistos ({{ total_counts.vistos }})</button></a></li>
+                            <li><a href="{% url 'index' %}?tab=boe"><button id="boe" data-filtro="boe">
+                                Boletines Oficiales ({{ total_counts.boe }})</button></a></li>
+                            <li><a href="{% url 'index' %}?tab=fallidas"><button id="fallidas" data-filtro="fallidas">
+                                URLs Fallidas ({{ total_counts.fallidas }})</button></a></li>
+                            <li><a href="{% url 'filtros_genericos' %}"><button id="filtros-genericos" type="button">Filtros Genéricos</button></a></li>    
+                        </div>
+                        <div class="nav-right">
+                            <button id="toggle-theme" title="Cambiar tema"
+                            data-light-icon="{% static 'monitor/light.png' %}"
+                            data-dark-icon="{% static 'monitor/dark.png' %}">
+                            <img id="theme-icon" src="{% static 'monitor/dark.png' %}" width="25px" alt="Tema">
+                        </button>
+                    </div>
+                </ul>
+        </header>
+        <main class="container">
+            <h1>Filtros Genéricos</h1>
+            <!-- Contenido principal -->
+            <div class="main-content_filtros">
+                <div class="descarga_filtros">
+                    <div class="card_filtros">
+                        <div class="botones_exportar">
+                            <form action="{% url 'importar_archivo' %}" method="post" enctype="multipart/form-data">
+                                {% csrf_token %} 
+                                <input type="file" name="archivo" class="check" required/> <br>
+                                <button type="submit" class="importar">Importar Archivo</button>
+                            </form> 
+                            <form action="{% url 'exportar_archivo' %}" method="get">
+                                <button type="submit" class="export">Exportar Datos</button>
+                            </form> 
+                            <form action="{% url 'reset_importacion' %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="delete_export">Eliminar Importación</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="creacion_filtros">
+                    <div class="card_filtros"> 
+                        <form method="post" id="filtro-form" action="{% url 'crear_filtro' %}" style="margin-top: 20px;">
+                            {% csrf_token %}<input type="hidden" name="id" id="filtro_id">
+                            <label for="nuevo_filtro">Nombre del filtro:</label><br>
+                            <input type="text" name="nombre" id="nuevo_filtro" required placeholder="Nombre del filtro"><br>
+                            <label for="contenido_filtro" style="margin-top:10px;">Contenido del filtro:</label><br>
+                            <textarea name="palabras" id="contenido_filtro" rows="4" placeholder="Escribe el contenido del filtro aquí..." required></textarea>
+                            <p id="error-msg" style="color: red; display: none; margin-top: 5px;"></p>
+                            <button type="submit" id="filtro-submit" class="save">Guardar</button>
+                            <button type="button" id="cancelar-edicion" class="cancel" onclick="cancelarEdicion()">Cancelar</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="aplicar_filtros">
+                    <div class="card_filtros"> <section class="elementos_aplicar">
+                            <form method="get" action="{% url 'index' %}">
+                                {% for filtro in filtros %}
+                                <label class="aplicados">
+                                    <input type="checkbox" name="filtro_aplicado" value="{{ filtro.id }}" {% if filtro.id == filtro_aplicado_id %}checked{% endif %}>
+                                    {{ filtro.nombre }}
+                                </label><br>
+                                <button type="submit" class="aplicar">Aplicar Filtro</button>
+                                <button type="button" class="editar" onclick="editarFiltro('{{ filtro.id }}', '{{ filtro.nombre }}', '{{ filtro.palabras|escapejs }}')">Editar Filtro</button>
+                                {% endfor %}
+                            </form>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>            
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="{% static 'monitor/script.js' %}" defer></script>
+    </body>
+    </html>
