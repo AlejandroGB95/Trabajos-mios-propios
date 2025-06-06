@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de juguetes</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="home-link"><i class="fas fa-home"></i> Inicio</a>
+            <a href="#Precio">Precio</a>
+            <a href="#foro">Foro</a>
+            <form class="search-bar" action="https://www.google.com/search" method="GET" target="_blank">
+                <input type="text" name="q" placeholder="Buscar...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="main-content" id="aceptar">
+        <section class="trailer">
+            <h1>Juguete Dragon Ball goku blue- Precio 10€</h1>
+            <div class="video-container">
+                <img width="560" height="315" src="https://www.juguetibicicollectors.com/cdn/shop/files/BND0289_037_380x380_crop_center.jpg?v=1713989491"></img>
+            </div>
+        </section>
+        <section class="trailer">
+            <h1>Muñeco Naruto rasengan -<s>Precio 10€</s></h1>
+            <div class="video-container">
+                <img width="560" height="315" src="https://juguetestoday.com/wp-content/uploads/2023/05/naruto-figura-heroes-anime-bandai.jpg"></iframe>
+            </div>
+        </section>
+        <section class="trailer">
+            <h1>Mesa herramientas de juguete - Precio 10€</h1>
+            <div class="video-container">
+                <img width="560" height="315" src="https://www.eurekakids.es/cdnassets/69182545-1_m.jpg"></img>
+            </div>
+        </section>
+        <section class="trailer">
+            <h1>Muñeco Buzzlightyear - Precio 10€</h1>
+            <div class="video-container">
+                <img width="560" height="315" src="https://www.pixologic.es/wp-content/uploads/2022/10/juguetes-de-672vbu-1.jpg"></img>
+            </div>
+        </section>
+        <section class="trailer">
+            <h1>Lego Castillo de Hogwarst - <s>Antes 440€</s> <u>Ahora 240€</u></h1>
+            <div class="video-container">
+                <img width="560" height="315" src="https://www.lego.com/cdn/cs/set/assets/blt42900047b73dc28a/76435_boxprod_v39_sha.png?fit=crop&quality=80&width=600&height=600&dpr=1"></img>
+            </div>
+        </section>
+
+        <section id="formulario">
+            <h2>Regístrate para más información</h2>
+            <form class="user-form">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required>
+
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" name="edad" min="10" max="100" required>
+
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" required>
+
+                <label for="telefono">Teléfono de Contacto:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+
+      
+    </div>
+    <footer>
+         <!-- Sección de redes sociales -->
+          <!-- -->
+
+    <!-- "https://twitter.com" -->
+
+     <section id="social">
+        <h2>Síguenos en nuestras Redes Sociales</h2>
+        <div class="social-icons">
+            <a href="twitter.png" class="social-icon twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" class="social-icon instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com" class="social-icon facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        </div>
+    </section>
+    </footer>
+    <div id="cookies"><h3>Este sitio utiliza Cookies, si quieres seguir navegando pulsa Aceptar</h3>
+       <button onclick="myfuntionaceptar()" class="button">Aceptar</button>
+       <button onclick="myfuntioncancelar()" class="button">Cancelar</button>
+       </div>
+    <script src="tiendajuguetes.js"></script>
+</body>
+</html>
