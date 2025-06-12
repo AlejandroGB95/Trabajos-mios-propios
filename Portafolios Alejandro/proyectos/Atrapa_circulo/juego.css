@@ -1,0 +1,72 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000;
+  color: #0ff;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.game-container {
+  padding: 1rem;
+  max-width: 100%;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+.score-panel {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.play-area {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 60vh;
+  background-color: #111;
+  border: 2px solid #0ff;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.circle {
+  width: clamp(30px, 6vw, 50px);
+  height: clamp(30px, 6vw, 50px);
+  background-color: #00f0ff;
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+  box-shadow: 0 0 20px #0ff;
+  animation: pop 0.5s ease-in-out;
+}
+
+@keyframes pop {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+#start-btn {
+  padding: 1rem 2rem;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  background-color: #0ff;
+  border: none;
+  color: #000;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+@media (max-width: 500px) {
+  .score-panel {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
