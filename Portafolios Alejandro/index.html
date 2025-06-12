@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portafolio Impactante</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="grid-bg"></div>
+
+  <header class="hero">
+    <h1 class="intro-text">Alejandro García Benítez</h1>
+    <p class="subtitle">Desarrollador Web</p>
+    <button id="mode-toggle" aria-label="Alternar modo claro/oscuro">🌗</button>
+  </header>
+
+  <section class="skills">
+    <h2>Habilidades</h2>
+    <div class="skill-bar">
+      <span>HTML</span>
+      <div class="bar"><div class="fill" style="width: 90%;"></div></div>
+    </div>
+    <div class="skill-bar">
+      <span>CSS</span>
+      <div class="bar"><div class="fill" style="width: 85%;"></div></div>
+    </div>
+    <div class="skill-bar">
+      <span>JavaScript</span>
+      <div class="bar"><div class="fill" style="width: 80%;"></div></div>
+    </div>
+  </section>
+
+  <section class="projects">
+     <h2>Proyectos</h2>
+    <div class="project-carousel">
+        <div class="project-card">
+          <div class="project">
+          <h3>🎮 Tetris JS</h3>
+          <p>Juego clásico de Tetris hecho con HTML, CSS y JavaScript puro.</p>
+          <a href="proyectos/Tetris_Juego/tetris.html" target="_blank" class="btn">Ver Proyecto</a>
+        </div>
+      </div>
+      <div class="project-card">
+          <div class="project">
+            <h3>🎮 Atrapa el circulo JS</h3>
+            <p>Juego clásico de atrapa el circulo hecho con HTML, CSS y JavaScript puro.</p>
+            <a href="proyectos/Atrapa_circulo/juego.html" target="_blank" class="btn">Ver Proyecto</a>
+          </div>
+      </div>
+      <div class="project-card">
+        <div class="project">
+            <h3>🎮 Juego de la serpiente</h3>
+            <p>Juego clásico de snake hecho con HTML, CSS y JavaScript puro.</p>
+            <a href="proyectos/Juego_Snake/snake.html" target="_blank" class="btn">Ver Proyecto</a>
+          </div>
+      </div>
+    </div>
+    <h2>Contacto</h2>
+    <div class="project-carousel">
+      <div class="project-card"><a href="https://github.com/AlejandroGB95" target="_blank">GitHub</a></div>
+      <div class="project-card"><a href="https://www.linkedin.com/in/alejandro-garc%C3%ADa-ben%C3%ADtez-desarrolladorweb/" target="_blank">LinkedIn</a></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Alejandro García Benítez</p>
+  </footer>
+</body>
+</html>
